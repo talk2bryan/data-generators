@@ -87,6 +87,22 @@ def test_gen_contacts(contacts):
     assert all(isinstance(contact, Contact) for contact in contacts)
 
 
+def test_main_without_output_file(contacts, capsys, monkeypatch):
+    # Set the return value for gen_contacts called in main
+    monkeypatch.setattr(
+        "data_generators.contacts.gen_contacts.gen_contacts",
+        lambda x: contacts,
+    )
+    # Call main without output file
+    main(num_contacts=len(contacts), output_file=None)
+    # Capture the standard output
+    captured = capsys.readouterr()
+    # Remove that extra newline character after each contact
+    output_str = captured.out.replace("\n\n", "\n")
+    # Compare the standard output with the expected output
+    assert output_str == "".join([str(contact) for contact in contacts])
+
+
 def test_main_with_output_file(contacts, monkeypatch):
     expected_output_text = "".join([str(contact) for contact in contacts])
 
@@ -109,23 +125,12 @@ def test_main_with_output_file(contacts, monkeypatch):
             assert file_contacts == expected_output_text
 
         # Clean up: remove the temporary file
-        os.unlink(temp.name)
-
-
-def test_main_without_output_file(contacts, capsys, monkeypatch):
-    # Set the return value for gen_contacts called in main
-    monkeypatch.setattr(
-        "data_generators.contacts.gen_contacts.gen_contacts",
-        lambda x: contacts,
-    )
-    # Call main without output file
-    main(num_contacts=len(contacts), output_file=None)
-    # Capture the standard output
-    captured = capsys.readouterr()
-    # Remove that extra newline character after each contact
-    output_str = captured.out.replace("\n\n", "\n")
-    # Compare the standard output with the expected output
-    assert output_str == "".join([str(contact) for contact in contacts])
+        # This causes an error in Windows, so we need to use a try-except block
+        try:
+            os.unlink(temp.name)
+        except PermissionError:
+            pass
+    assert not os.path.exists(temp.name)
 
 
 def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
@@ -145,3 +150,4 @@ def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
         captured = capsys.readouterr()
         assert "Error writing to file" in captured.out
         assert "Is a directory" in captured.out
+    assert not os.path.exists(temp.name)
