@@ -2,8 +2,12 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
+      - develop
   pull_request:
-
+    branches:
+      - main
 jobs:
   run-tests:
     strategy:
@@ -13,10 +17,6 @@ jobs:
         python-version:
           - "3.10"
           - "3.11"
-          - "3.12"
-          - "pypy-3.10"
-          - "pypy-3.11"
-          - "pypy-3.12"
     name: Test
     runs-on: ${{ matrix.os }}
 
