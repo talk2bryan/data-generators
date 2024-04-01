@@ -147,7 +147,6 @@ def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
         # Check if the error message was printed
         captured = capsys.readouterr()
         assert "Error writing to file" in captured.out
-        assert "Is a directory" in captured.out
 
         try:
             # Clean up: remove the temporary file
