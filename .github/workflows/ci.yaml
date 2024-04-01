@@ -37,3 +37,9 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest --cov=data_generators
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: talk2bryan/data-generators
