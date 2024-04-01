@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
-from email.headerregistry import Address
 
+from data_generators.contacts.address import Address
 from data_generators.contacts.email import Email
 from data_generators.contacts.phone_number import PhoneNumber
 
@@ -30,7 +30,28 @@ class Contact:
 
     def __str__(self) -> str:
         return (
-            f"{self.full_name}"
+            f"Name: {self.full_name}"
             + (f" ({self.nickname})" if self.nickname else "")
             + (f" - {self.title}" if self.title else "")
+            + "\n"
+            + (f"DOB: {self.birth_date}" if self.birth_date else "")
+            + "\n"
+            + (
+                f"All Phone Numbers: {', '.join([str(p) for p in self.phone_numbers])}"
+                if self.phone_numbers
+                else ""
+            )
+            + "\n"
+            + (
+                f"All Emails: {', '.join([str(e) for e in self.emails])}"
+                if self.emails
+                else ""
+            )
+            + "\n"
+            + (
+                f"All Addresses: {', '.join([str(a) for a in self.addresses])}"
+                if self.addresses
+                else ""
+            )
+            + "\n"
         )

@@ -36,24 +36,57 @@ def address():
 @pytest.fixture
 def contact(phone_number, email, address):
     return Contact(
-        "John", None, "Doe", None, None, None, None, [phone_number], [email], [address]
+        first_name="John",
+        middle_name=None,
+        last_name="Doe",
+        nickname=None,
+        title=None,
+        birth_date=None,
+        notes=None,
+        phone_numbers=[phone_number],
+        emails=[email],
+        addresses=[address],
     )
 
 
 # Define a fixture for a Contact with all fields filled
 @pytest.fixture
-def contact_full():
+def contact_full_name():
     return Contact(
         first_name="John",
-        middle_name="M",
+        middle_name="Nicholas",
         last_name="Doe",
-        nickname="Johnny",
+        nickname="JD",
         title="Mr.",
-        birth_date="01/01/2000",
-        notes="Test contact",
-        phone_numbers=[phone_number],
-        emails=[email],
-        addresses=[address],
+        birth_date="1990-01-01",
+        notes=None,
+        phone_numbers=[
+            PhoneNumber("home", 1, 123, 4567890),
+            PhoneNumber("work", 1, 198, 7654321),
+        ],
+        emails=[
+            Email(type="home", address="email@address.com"),
+        ],
+        addresses=[
+            Address(
+                type="home",
+                unit=None,
+                street="123 Main St",
+                city="Anytown",
+                state="Anystate",
+                postal_code="12345",
+                country="USA",
+            ),
+            Address(
+                type="work",
+                unit=None,
+                street="456 Oak St",
+                city="Othertown",
+                state="Otherstate",
+                postal_code="54321",
+                country="USA",
+            ),
+        ],
     )
 
 
@@ -61,8 +94,8 @@ def test_contact_full_name(contact):
     assert contact.full_name == "John Doe"
 
 
-def test_contact_full_name_w_middlename(contact_full):
-    assert contact_full.full_name == "John M Doe"
+def test_contact_full_name_w_middlename(contact_full_name):
+    assert contact_full_name.full_name == "John Nicholas Doe"
 
 
 def test_contact_phone_number(contact):
@@ -79,5 +112,12 @@ def test_contact_address(contact):
     )
 
 
-def test_contact_str(contact_full):
-    assert str(contact_full) == "John M Doe (Johnny) - Mr."
+def test_contact_str(contact_full_name):
+    expected_output = (
+        "Name: John Nicholas Doe (JD) - Mr.\n"
+        + "DOB: 1990-01-01\n"
+        + "All Phone Numbers: HOME: +1 (123) 4567890, WORK: +1 (198) 7654321\n"
+        + "All Emails: HOME: email@address.com\n"
+        + "All Addresses: HOME: 123 Main St, Anytown, Anystate 12345 USA, WORK: 456 Oak St, Othertown, Otherstate 54321 USA\n"
+    )
+    assert str(contact_full_name) == expected_output
