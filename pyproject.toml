@@ -2,12 +2,15 @@
 name = "data-generators"
 version = "0.1.0"
 description = ""
-authors = ["Bryan Wodi <>"]
+authors = ["Bryan Wodi <12839540+talk2bryan@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
 
 [build-system]
 requires = ["poetry-core"]
