@@ -42,3 +42,38 @@ repos:
     hooks:
     -   id: mypy
         args: [--ignore-missing-imports, --show-error-codes, --pretty]
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: python
+        types: [python]
+        pass_filenames: false
+        stages: [commit, push]
+        always_run: true
+        verbose: true
+        require_serial: true
+        additional_dependencies: [pytest]
+        description: Run pytest
+        files: ^tests/.*\.py$
+        exclude: ^tests/conftest\.py$
+        exclude_types: [yaml, toml, json]
+      - id: pytest-cov
+        name: pytest-cov
+        entry: pytest
+        language: python
+        types: [python]
+        pass_filenames: false
+        stages: [commit, push]
+        args: [--cov=data_generators, --cov-report=term-missing]
+        always_run: true
+        verbose: true
+        require_serial: true
+        additional_dependencies: [pytest, pytest-cov]
+        description: Run pytest with coverage
+        files: ^tests/.*\.py$
+        exclude: |-
+          ^tests/conftest\.py$
+          ^tests/test_.*\.py$
+        exclude_types: [yaml, toml, json]
