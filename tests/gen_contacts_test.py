@@ -97,10 +97,7 @@ def test_main_without_output_file(contacts, capsys, monkeypatch):
     main(num_contacts=len(contacts), output_file=None)
     # Capture the standard output
     captured = capsys.readouterr()
-    # Remove that extra newline character after each contact
-    output_str = captured.out.replace("\n\n", "\n")
-    # Compare the standard output with the expected output
-    assert output_str == "".join([str(contact) for contact in contacts])
+    assert captured.out == "".join([str(contact) for contact in contacts])
 
 
 def test_main_with_output_file(contacts, monkeypatch):
@@ -117,8 +114,6 @@ def test_main_with_output_file(contacts, monkeypatch):
         # Read the output file and compare with expected output
         with open(temp.name) as f:
             file_contacts = f.readlines()
-            # Ignore empty lines
-            file_contacts = [line for line in file_contacts if line.strip()]
             # Convert list to string
             file_contacts = "".join(file_contacts)
             # Compare the output file with the expected output

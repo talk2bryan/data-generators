@@ -87,12 +87,12 @@ def main(num_contacts: int = MIN_NUM_CONTACTS, output_file: str | None = None):
         try:
             with open(output_file, "w") as file:
                 for contact in contacts:
-                    file.write(str(contact) + "\n")
+                    file.write(str(contact))
         except Exception as e:
             print(f"Error writing to file: {e}")
     else:
         for contact in contacts:
-            print(contact)
+            print(contact, end="")
 
 
 if __name__ == "__main__":
