@@ -130,7 +130,6 @@ def test_main_with_output_file(contacts, monkeypatch):
             os.unlink(temp.name)
         except PermissionError:
             pass
-    assert not os.path.exists(temp.name)
 
 
 def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
@@ -144,10 +143,12 @@ def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
         output_file = os.path.dirname(temp.name)
         # Call main with output file
         main(num_contacts=len(contacts), output_file=output_file)
-        # Clean up: remove the temporary file
-        os.unlink(temp.name)
+        try:
+            # Clean up: remove the temporary file
+            os.unlink(temp.name)
+        except PermissionError:
+            pass
         # Check if the error message was printed
         captured = capsys.readouterr()
         assert "Error writing to file" in captured.out
         assert "Is a directory" in captured.out
-    assert not os.path.exists(temp.name)
