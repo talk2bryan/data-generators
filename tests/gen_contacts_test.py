@@ -8,8 +8,8 @@ from data_generators.contacts.contact import Contact
 from data_generators.contacts.email import Email
 from data_generators.contacts.gen_contacts import (
     gen_address,
-    gen_contact,
-    gen_contacts,
+    gen_contact_instance,
+    gen_contact_instances,
     gen_email,
     gen_phone_number,
     main,
@@ -34,12 +34,12 @@ def address():
 
 @pytest.fixture
 def contact():
-    return gen_contact()
+    return gen_contact_instance()
 
 
 @pytest.fixture
 def contacts():
-    return gen_contacts()
+    return gen_contact_instances()
 
 
 def test_gen_email(email):
@@ -88,9 +88,9 @@ def test_gen_contacts(contacts):
 
 
 def test_main_without_output_file(contacts, capsys, monkeypatch):
-    # Set the return value for gen_contacts called in main
+    # Set the return value for gen_contact_instances called in main
     monkeypatch.setattr(
-        "data_generators.contacts.gen_contacts.gen_contacts",
+        "data_generators.contacts.gen_contacts.gen_contact_instances",
         lambda x: contacts,
     )
     # Call main without output file
@@ -107,9 +107,9 @@ def test_main_with_output_file(contacts, monkeypatch):
     expected_output_text = "".join([str(contact) for contact in contacts])
 
     with tempfile.NamedTemporaryFile(delete=False) as temp:
-        # Set the return value for gen_contacts called in main
+        # Set the return value for gen_contact_instances called in main
         monkeypatch.setattr(
-            "data_generators.contacts.gen_contacts.gen_contacts",
+            "data_generators.contacts.gen_contacts.gen_contact_instances",
             lambda x: contacts,
         )
         # Call main with output file
@@ -134,9 +134,9 @@ def test_main_with_output_file(contacts, monkeypatch):
 
 def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
     with tempfile.NamedTemporaryFile(delete=False) as temp:
-        # Set the return value for gen_contacts called in main
+        # Set the return value for gen_contact_instances called in main
         monkeypatch.setattr(
-            "data_generators.contacts.gen_contacts.gen_contacts",
+            "data_generators.contacts.gen_contacts.gen_contact_instances",
             lambda x: contacts,
         )
         # Set the output file to a directory path instead of a file path

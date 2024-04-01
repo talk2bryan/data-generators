@@ -4,13 +4,13 @@ of the Contact class with different field values."""
 import fire
 from faker import Faker
 
+from data_generators.contacts import MIN_NUM_CONTACTS
 from data_generators.contacts.address import Address
 from data_generators.contacts.contact import Contact
 from data_generators.contacts.email import Email
 from data_generators.contacts.phone_number import PhoneNumber
 
 fake = Faker()
-MIN_NUM_CONTACTS = 10
 
 
 def gen_email() -> Email:
@@ -48,7 +48,7 @@ def gen_address() -> Address:
     )
 
 
-def gen_contact() -> Contact:
+def gen_contact_instance() -> Contact:
     """Generate a random contact."""
     num_phone_numbers = fake.random_int(min=1, max=3)
     num_emails = fake.random_int(min=1, max=3)
@@ -69,9 +69,9 @@ def gen_contact() -> Contact:
     )
 
 
-def gen_contacts(num_contacts: int = MIN_NUM_CONTACTS) -> list[Contact]:
+def gen_contact_instances(num_contacts: int = MIN_NUM_CONTACTS) -> list[Contact]:
     """Generate a list of random contacts."""
-    return [gen_contact() for _ in range(num_contacts)]
+    return [gen_contact_instance() for _ in range(num_contacts)]
 
 
 def main(num_contacts: int = MIN_NUM_CONTACTS, output_file: str | None = None):
@@ -82,7 +82,7 @@ def main(num_contacts: int = MIN_NUM_CONTACTS, output_file: str | None = None):
           to `MIN_NUM_CONTACTS`.
         output_file (str | None, optional): Output file path. Defaults to None.
     """
-    contacts = gen_contacts(num_contacts)
+    contacts = gen_contact_instances(num_contacts)
     if output_file:
         try:
             with open(output_file, "w") as file:
