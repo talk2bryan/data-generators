@@ -1,6 +1,6 @@
 import pytest
 
-from data_generators.contacts.address import Address
+from vcf_generator.address import Address
 
 
 @pytest.fixture

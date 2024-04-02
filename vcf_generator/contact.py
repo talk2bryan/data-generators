@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
 
-from data_generators.contacts.address import Address
-from data_generators.contacts.email import Email
-from data_generators.contacts.phone_number import PhoneNumber
+from vcf_generator.address import Address
+from vcf_generator.email import Email
+from vcf_generator.phone_number import PhoneNumber
 
 
 @dataclass
@@ -37,19 +37,19 @@ class Contact:
             + (f"DOB: {self.birth_date}" if self.birth_date else "")
             + "\n"
             + (
-                f"All Phone Numbers: {', '.join([str(p) for p in self.phone_numbers])}"
+                f"Phone Numbers: {', '.join([str(p) for p in self.phone_numbers])}"
                 if self.phone_numbers
                 else ""
             )
             + "\n"
             + (
-                f"All Emails: {', '.join([str(e) for e in self.emails])}"
+                f"Emails: {', '.join([str(e) for e in self.emails])}"
                 if self.emails
                 else ""
             )
             + "\n"
             + (
-                f"All Addresses: {', '.join([str(a) for a in self.addresses])}"
+                f"Addresses: {', '.join([str(a) for a in self.addresses])}"
                 if self.addresses
                 else ""
             )

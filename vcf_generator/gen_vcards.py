@@ -2,9 +2,9 @@
 
 import fire
 
-from data_generators.contacts import MIN_NUM_CONTACTS
-from data_generators.contacts.contact import Contact
-from data_generators.contacts.gen_contacts import gen_contact_instances
+from vcf_generator import MIN_NUM_CONTACTS
+from vcf_generator.contact import Contact
+from vcf_generator.gen_contacts import gen_contact_instances
 
 
 def serialize_contact(contact: Contact) -> str:

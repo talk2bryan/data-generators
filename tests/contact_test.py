@@ -1,9 +1,9 @@
 import pytest
 
-from data_generators.contacts.address import Address
-from data_generators.contacts.contact import Contact
-from data_generators.contacts.email import Email
-from data_generators.contacts.phone_number import PhoneNumber
+from vcf_generator.address import Address
+from vcf_generator.contact import Contact
+from vcf_generator.email import Email
+from vcf_generator.phone_number import PhoneNumber
 
 
 # Define a fixture for a PhoneNumber instance
@@ -116,8 +116,8 @@ def test_contact_str(contact_full_name):
     expected_output = (
         "Name: John Nicholas Doe (JD) - Mr.\n"
         + "DOB: 1990-01-01\n"
-        + "All Phone Numbers: HOME: +1 (123) 4567890, WORK: +1 (198) 7654321\n"
-        + "All Emails: HOME: email@address.com\n"
-        + "All Addresses: HOME: 123 Main St, Anytown, Anystate 12345 USA, WORK: 456 Oak St, Othertown, Otherstate 54321 USA\n"
+        + "Phone Numbers: HOME: +1 (123) 4567890, WORK: +1 (198) 7654321\n"
+        + "Emails: HOME: email@address.com\n"
+        + "Addresses: HOME: 123 Main St, Anytown, Anystate 12345 USA, WORK: 456 Oak St, Othertown, Otherstate 54321 USA\n"
     )
     assert str(contact_full_name) == expected_output

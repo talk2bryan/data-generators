@@ -73,7 +73,7 @@ repos:
         types: [python]
         pass_filenames: false
         stages: [commit, push]
-        args: [--cov=data_generators, --cov-report=term-missing]
+        args: [--cov=vcf_generator, --cov-report=term-missing]
         always_run: true
         verbose: true
         require_serial: true

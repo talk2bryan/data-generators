@@ -1,4 +1,4 @@
-from data_generators.contacts.email import Email
+from vcf_generator.email import Email
 
 
 def test_str():

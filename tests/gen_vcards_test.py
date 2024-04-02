@@ -1,14 +1,14 @@
 import pytest
 
-from data_generators.contacts.address import Address
-from data_generators.contacts.contact import Contact
-from data_generators.contacts.email import Email
-from data_generators.contacts.gen_vcards import (
+from vcf_generator.address import Address
+from vcf_generator.contact import Contact
+from vcf_generator.email import Email
+from vcf_generator.gen_vcards import (
     gen_vcards_str,
     serialize_contact,
     serialize_contacts,
 )
-from data_generators.contacts.phone_number import PhoneNumber
+from vcf_generator.phone_number import PhoneNumber
 
 
 @pytest.fixture
@@ -130,12 +130,11 @@ def test_serialize_contacts(contacts):
 
 def test_gen_vcards(contacts, monkeypatch):
     monkeypatch.setattr(
-        "data_generators.contacts.gen_contacts.gen_contact_instances",
+        "vcf_generator.gen_contacts.gen_contact_instances",
         lambda x: contacts,
     )
 
     vcards_str = gen_vcards_str(num_contacts=len(contacts))
-    print(vcards_str)
     assert len(vcards_str) == len(contacts)
     for vcard in vcards_str:
         assert "BEGIN:VCARD" in vcard

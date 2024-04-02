@@ -1,4 +1,4 @@
-from data_generators.contacts.phone_number import PhoneNumber
+from vcf_generator.phone_number import PhoneNumber
 
 
 def test_str():

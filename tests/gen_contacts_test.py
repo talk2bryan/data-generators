@@ -3,10 +3,10 @@ import tempfile
 
 import pytest
 
-from data_generators.contacts.address import Address
-from data_generators.contacts.contact import Contact
-from data_generators.contacts.email import Email
-from data_generators.contacts.gen_contacts import (
+from vcf_generator.address import Address
+from vcf_generator.contact import Contact
+from vcf_generator.email import Email
+from vcf_generator.gen_contacts import (
     gen_address,
     gen_contact_instance,
     gen_contact_instances,
@@ -14,7 +14,7 @@ from data_generators.contacts.gen_contacts import (
     gen_phone_number,
     main,
 )
-from data_generators.contacts.phone_number import PhoneNumber
+from vcf_generator.phone_number import PhoneNumber
 
 
 @pytest.fixture
@@ -90,7 +90,7 @@ def test_gen_contacts(contacts):
 def test_main_without_output_file(contacts, capsys, monkeypatch):
     # Set the return value for gen_contact_instances called in main
     monkeypatch.setattr(
-        "data_generators.contacts.gen_contacts.gen_contact_instances",
+        "vcf_generator.gen_contacts.gen_contact_instances",
         lambda x: contacts,
     )
     # Call main without output file
@@ -106,7 +106,7 @@ def test_main_with_output_file(contacts, monkeypatch):
     with tempfile.NamedTemporaryFile(delete=False) as temp:
         # Set the return value for gen_contact_instances called in main
         monkeypatch.setattr(
-            "data_generators.contacts.gen_contacts.gen_contact_instances",
+            "vcf_generator.gen_contacts.gen_contact_instances",
             lambda x: contacts,
         )
         # Call main with output file
@@ -131,7 +131,7 @@ def test_main_with_output_file_exception(contacts, capsys, monkeypatch):
     with tempfile.NamedTemporaryFile(delete=False) as temp:
         # Set the return value for gen_contact_instances called in main
         monkeypatch.setattr(
-            "data_generators.contacts.gen_contacts.gen_contact_instances",
+            "vcf_generator.gen_contacts.gen_contact_instances",
             lambda x: contacts,
         )
         # Set the output file to a directory path instead of a file path

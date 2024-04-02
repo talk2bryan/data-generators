@@ -36,7 +36,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest --cov data_generators --cov-report xml:coverage.xml
+          poetry run pytest --cov vcf_generator --cov-report xml:coverage.xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
