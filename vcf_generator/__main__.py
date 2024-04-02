@@ -1,10 +1,4 @@
-"""CLI module for vcf_generator package.
-
-The user can either call the gen_contacts module or the gen_vcards module as follows:
-
-$ python -m vcf_generator contacts_str [--num_contacts NUM_CONTACTS] [--output_file OUTPUT_FILE]
-$ python -m vcf_generator vcards [--num_contacts NUM_CONTACTS] [--output_file OUTPUT_FILE]
-"""
+"""CLI module for vcf_generator package."""
 
 import fire
 
