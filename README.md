@@ -1,7 +1,12 @@
-[![build status](https://github.com/talk2bryan/data-generators/actions/workflows/ci.yaml/badge.svg)](https://github.com/talk2bryan/data-generators/actions/workflows/ci.yaml)
-[![codecov](https://codecov.io/gh/talk2bryan/data-generators/graph/badge.svg?token=IHS7IJ3RPN)](https://codecov.io/gh/talk2bryan/data-generators)
+[![build status](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yaml/badge.svg)](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yaml)
+[![codecov](https://codecov.io/gh/talk2bryan/vcf-generator/graph/badge.svg?token=IHS7IJ3RPN)](https://codecov.io/gh/talk2bryan/vcf-generator)
+[![PyPI version](https://badge.fury.io/py/vcf-generator.svg)](https://badge.fury.io/py/vcf-generator)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/vcf-generator)](https://pypi.org/project/vcf-generator/)
+[![PyPI - License](https://img.shields.io/pypi/l/vcf-generator)](https://pypi.org/project/vcf-generator/)
+[![PyPI - Format](https://img.shields.io/pypi/format/vcf-generator)](https://pypi.org/project/vcf-generator/)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/vcf-generator)](https://pypi.org/project/vcf-generator/)
 
-# data-generators
+# vcf-generator
 
 A simple VCF generator. Generate VCF files with random data.
 
