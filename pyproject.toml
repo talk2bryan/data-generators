@@ -1,9 +1,22 @@
 [tool.poetry]
 name = "vcf-generator"
-version = "0.2.0"
-description = ""
-authors = ["Bryan Wodi <12839540+talk2bryan@users.noreply.github.com>"]
+version = "0.3.0"
+description = "A simple VCF generator. Generate VCF files with random data."
+authors = ["Bryan Wodi <pypi.envy443@dralias.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/talk2bryan/vcf-processor"
+keywords = ["vcf", "generator", "vcard", "contacts", "faker", "python"]
+include = [
+    { path =  "tests", format = "sdist" }
+]
+
+[tool.poetry.scripts]
+vcf_generator_cli = "vcf_generator.__main__:main"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/talk2bryan/vcf-processor/issues"
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
