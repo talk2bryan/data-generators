@@ -36,4 +36,12 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest --cov=data_generators
+          poetry run pytest --cov vcf_generator --cov-report xml:coverage.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
