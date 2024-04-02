@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vcf-generator"
-version = "0.3.1"
+version = "1.0.0"
 description = "A simple VCF generator. Generate VCF files with random data."
 authors = ["Bryan Wodi <pypi.envy443@dralias.com>"]
 readme = "README.md"
@@ -12,7 +12,7 @@ include = [
 ]
 
 [tool.poetry.scripts]
-vcf_generator_cli = "vcf_generator.__main__:main"
+vcf-generator = "vcf_generator.__main__:main"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/talk2bryan/vcf-generator/issues"
