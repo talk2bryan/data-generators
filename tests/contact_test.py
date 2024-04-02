@@ -99,7 +99,7 @@ def test_contact_full_name_w_middlename(contact_full_name):
 
 
 def test_contact_phone_number(contact):
-    assert str(contact.phone_numbers[0]) == "HOME: +1 (123) 4567890"
+    assert str(contact.phone_numbers[0]) == "HOME: +1 (123) 456-7890"
 
 
 def test_contact_email(contact):
@@ -116,8 +116,8 @@ def test_contact_str(contact_full_name):
     expected_output = (
         "Name: John Nicholas Doe (JD) - Mr.\n"
         + "DOB: 1990-01-01\n"
-        + "Phone Numbers: HOME: +1 (123) 4567890, WORK: +1 (198) 7654321\n"
+        + "Phone Numbers: HOME: +1 (123) 456-7890. WORK: +1 (198) 765-4321\n"
         + "Emails: HOME: email@address.com\n"
-        + "Addresses: HOME: 123 Main St, Anytown, Anystate 12345 USA, WORK: 456 Oak St, Othertown, Otherstate 54321 USA\n"
+        + "Addresses: HOME: 123 Main St, Anytown, Anystate 12345 USA. WORK: 456 Oak St, Othertown, Otherstate 54321 USA\n"
     )
     assert str(contact_full_name) == expected_output

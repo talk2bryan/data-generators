@@ -56,23 +56,23 @@ The above command will generate a VCF file with 1 contact and print the content 
 ```bash
 BEGIN:VCARD
 VERSION:4.0
-N:None;Caroline;None;;None
-FN:Caroline
-ORG:None Co.
-TITLE:None
-TEL;TYPE#HOME,voice;VALUE#uri:tel:+72-665-5131092
-TEL;TYPE#HOME,voice;VALUE#uri:tel:+63-689-8521227
-TEL;TYPE#WORK,voice;VALUE#uri:tel:+594-235-6973654
-ADR;TYPE#OTHER;PREF#1;LABEL#922 Williams Grove Apt. 408
-Debbieside, NE 58214
-Trinidad and Tobago:;;922 Williams Grove Apt. 408;Debbieside;NE;58214;Trinidad and Tobago
-ADR;TYPE#WORK;PREF#2;LABEL#987 Middleton Shoals
-Lake Amyview, OK 67042
-Hungary:;;987 Middleton Shoals;Lake Amyview;OK;67042;Hungary
-BDAY:1965-02-22
-EMAIL:rebeccabrady@example.com
-EMAIL:michaeljordan@example.com
-EMAIL:campbellrodney@example.com
+N:None;Laura;Valerie;;Miss
+FN:Laura Valerie
+ORG:Miss Co.
+TITLE:Miss
+TEL;TYPE#HOME,voice;VALUE#uri:tel:+859-422-5863580
+TEL;TYPE#MOBILE,voice;VALUE#uri:tel:+528-463-7642962
+TEL;TYPE#MOBILE,voice;VALUE#uri:tel:+51-666-1415776
+ADR;TYPE#WORK;PREF#1;LABEL#13962 Casey Spring Suite 931
+Xavierfurt, VT 65391
+Suriname:;;13962 Casey Spring Suite 931;Xavierfurt;VT;65391;Suriname
+ADR;TYPE#OTHER;PREF#2;LABEL#33446 Deanna Prairie Apt. 140
+Mcguireport, NJ 64518
+Tokelau:;;33446 Deanna Prairie Apt. 140;Mcguireport;NJ;64518;Tokelau
+BDAY:1959-08-06
+EMAIL:caleb93@example.org
+EMAIL:christopherblankenship@example.org
+EMAIL:michaelwhite@example.org
 END:VCARD
 ```
 
@@ -84,9 +84,9 @@ $ vcf-generator contacts_str
 The above command will generate a contact as string and print the content to the console:
 
 ```bash
-Name: Latoya (Jenna) - Mrs.
-DOB: 1953-04-23
-Phone Numbers: MOBILE: +111 (747) 3381349, OTHER: +220 (470) 7413364
-Emails: PERSONAL: jameswillis@example.org, OTHER: haasbrenda@example.com
-Addresses: OTHER: 86137 Julie Neck Apt. 623, 745 East Eugenefort, MD 06582 Marshall Islands, WORK: 751 Michael Crossroad, 7971 New Andreaton, NM 31536 Israel
+Name: Charles Rebekah - Ind.
+DOB: 1953-11-18
+Phone Numbers: HOME: +738 (250) 705-2590. OTHER: +432 (509) 404-8152. MOBILE: +601 (647) 746-1060
+Emails: OTHER: daniel03@example.org
+Addresses: OTHER: 557 Ruiz Avenue, 7934 Westmouth, KY 56508 Guyana
 ```

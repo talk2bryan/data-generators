@@ -21,8 +21,10 @@ class PhoneNumber:
         self.type = self.type.upper()
 
     def __str__(self) -> str:
+        subscriber_number = str(self.subscriber_number)
+        subscriber_number = subscriber_number[:3] + "-" + subscriber_number[3:]
         return (
             f"{self.type}: " + f"+{self.country_code} "
             f"({self.area_code}) "
-            f"{self.subscriber_number}"
+            f"{subscriber_number}"
         )

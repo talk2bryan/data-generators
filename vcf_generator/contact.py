@@ -37,19 +37,19 @@ class Contact:
             + (f"DOB: {self.birth_date}" if self.birth_date else "")
             + "\n"
             + (
-                f"Phone Numbers: {', '.join([str(p) for p in self.phone_numbers])}"
+                f"Phone Numbers: {'. '.join([str(p) for p in self.phone_numbers])}"
                 if self.phone_numbers
                 else ""
             )
             + "\n"
             + (
-                f"Emails: {', '.join([str(e) for e in self.emails])}"
+                f"Emails: {'. '.join([str(e) for e in self.emails])}"
                 if self.emails
                 else ""
             )
             + "\n"
             + (
-                f"Addresses: {', '.join([str(a) for a in self.addresses])}"
+                f"Addresses: {'. '.join([str(a) for a in self.addresses])}"
                 if self.addresses
                 else ""
             )
