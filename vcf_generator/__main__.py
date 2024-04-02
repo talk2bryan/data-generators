@@ -21,7 +21,7 @@ class Contacts:
         num_contacts: int = MIN_NUM_CONTACTS,
         output_file: str | None = None,
     ):
-        """Generate contacts as.
+        """Generate contacts as strings.
         Use -n to specify the number of contacts to generate and -o to specify an output file.
 
         Args:
