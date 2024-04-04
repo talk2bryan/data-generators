@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - master
+  pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
   build:
@@ -96,7 +100,11 @@ jobs:
         --repo '${{ github.repository }}'
 
   publish-to-testpypi:
-    name: Publish Python 🐍 distribution 📦 to TestPyPI
+    name: >-
+      Publish Python 🐍 distribution 📦 to TestPyPI
+    # Do not run if the tag is a version tag.
+    # version tags are published to PyPI
+    if: ${{ ! startsWith(github.ref, 'refs/tags/v') }}
     needs:
     - build
     runs-on: ubuntu-latest
