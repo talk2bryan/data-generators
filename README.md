@@ -1,4 +1,4 @@
-[![build status](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yaml/badge.svg)](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yaml)
+[![build status](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/talk2bryan/vcf-generator/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/talk2bryan/vcf-generator/graph/badge.svg?token=IHS7IJ3RPN)](https://codecov.io/gh/talk2bryan/vcf-generator)
 [![PyPI version](https://badge.fury.io/py/vcf-generator.svg)](https://badge.fury.io/py/vcf-generator)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/vcf-generator)](https://pypi.org/project/vcf-generator/)
@@ -51,7 +51,7 @@ Options:
 $ vcf-generator vcards
 ```
 
-The above command will generate a VCF file with 1 contact and print the content to the console:
+The above command will generate 1 contact as a VCF string and print the content to the console:
 
 ```bash
 BEGIN:VCARD
@@ -81,7 +81,7 @@ END:VCARD
 $ vcf-generator contacts_str
 ```
 
-The above command will generate a contact as string and print the content to the console:
+The above command will generate 1 contact information and print the content to the console:
 
 ```bash
 Name: Charles Rebekah - Ind.
