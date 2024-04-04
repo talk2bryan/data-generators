@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   build:
@@ -37,7 +35,7 @@ jobs:
   publish-to-pypi:
     name: >-
       Publish Python 🐍 distribution 📦 to PyPI
-    if: startsWith(github.ref, 'refs/tags/v')  # only publish to PyPI on tag pushes
+    if: startsWith(github.ref, 'refs/tags/main')  # only publish to PyPI on tag pushes
     needs:
     - build
     runs-on: ubuntu-latest
@@ -104,7 +102,7 @@ jobs:
       Publish Python 🐍 distribution 📦 to TestPyPI
     # Do not run if the tag is a version tag.
     # version tags are published to PyPI
-    if: ${{ ! startsWith(github.ref, 'refs/tags/v') }}
+    if: ${{ ! startsWith(github.ref, 'refs/tags/main') }}
     needs:
     - build
     runs-on: ubuntu-latest
