@@ -58,7 +58,6 @@ BEGIN:VCARD
 VERSION:4.0
 N:None;Laura;Valerie;;Miss
 FN:Laura Valerie
-ORG:Miss Co.
 TITLE:Miss
 TEL;TYPE#HOME,voice;VALUE#uri:tel:+859-422-5863580
 TEL;TYPE#MOBILE,voice;VALUE#uri:tel:+528-463-7642962

@@ -81,7 +81,6 @@ def test_serialize_contact(contact):
     assert "VERSION:4.0" in vcard
     assert "N:Doe;John;M;;Mr" in vcard
     assert "FN:John M Doe" in vcard
-    assert "ORG:Mr Co." in vcard
     assert "TITLE:Mr" in vcard
     assert "TEL;TYPE#WORK,voice;VALUE#uri:tel:+1-123-4567890" in vcard
     assert (
@@ -101,7 +100,6 @@ def test_serialize_contact_no_phone_no_address(contact):
     assert "VERSION:4.0" in vcard
     assert "N:Doe;John;M;;Mr" in vcard
     assert "FN:John M Doe" in vcard
-    assert "ORG:Mr Co." in vcard
     assert "TITLE:Mr" in vcard
     assert "BDAY:1980-01-01" in vcard
     assert "EMAIL:test@example.com" in vcard
@@ -115,7 +113,6 @@ def test_serialize_contacts(contacts):
         assert "VERSION:4.0" in vcard
         assert "N:" in vcard
         assert "FN:" in vcard
-        assert "ORG:" in vcard
         assert "TITLE:" in vcard
         assert "TEL;TYPE#WORK,voice;VALUE#uri:tel:+1-123-4567890" in vcard
         assert (
@@ -141,6 +138,5 @@ def test_gen_vcards(contacts, monkeypatch):
         assert "VERSION:4.0" in vcard
         assert "N:" in vcard
         assert "FN:" in vcard
-        assert "ORG:" in vcard
         assert "TITLE:" in vcard
         assert "BDAY:" in vcard
