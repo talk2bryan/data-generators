@@ -14,7 +14,6 @@ def serialize_contact(contact: Contact) -> str:
         "VERSION:4.0",
         f"N:{contact.last_name};{contact.first_name};{contact.middle_name};;{contact.title}",
         f"FN:{contact.full_name}",
-        f"ORG:{contact.title} Co.",
         f"TITLE:{contact.title}",
     ]
     if contact.phone_numbers:
