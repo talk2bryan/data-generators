@@ -41,6 +41,7 @@ class Contacts:
 
 def main():
     """CLI module for vcf_generator package."""
+    # Fire up the CLI module.
     fire.Fire(Contacts)
 
 
